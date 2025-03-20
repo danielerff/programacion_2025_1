@@ -1,0 +1,277 @@
+/* Reset Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilos Base para Mobile */
+  #container {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Definimos filas para cada área: 
+       config (40px), header (60px), banner (100vh), content (auto), footer (60px), under-bar (30px) */
+    grid-template-rows:  60px 90vh repeat(4, 40vh) repeat(4, 50vh) 40px;
+    grid-template-areas:
+      "header"
+      "a"
+      "uno"
+      "dos"
+      "tres"
+      "cuatro"
+      "b"
+      "c"
+      "d"
+      "footer"
+      "under-bar";
+    /* Nota: "config" no se muestra en Mobile */
+  }
+  
+  /* Asignación de áreas */
+  #config {
+    grid-area: config;
+    background-color: #8ed14f;
+    color: #fff;
+    display: none; /* Oculto en Mobile */
+  }
+  
+header {
+    grid-area: header;
+    background-color: rgb(170, 233, 165);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+
+  }
+  h2{
+   font: 2rem;
+   font-style: oblique;
+  }
+
+.botones{
+    display: flex;
+    gap: 15px;
+  
+
+}
+
+.boton{
+    padding: 8px 16px;
+    background-color: #46d146;
+    color: black;
+    border-radius: 8px;
+
+}
+
+  #uno{
+    grid-area: uno;
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+ 
+
+
+  }
+  .cajas{
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    border: 2px solid black;
+    background: radial-gradient(circle, #fff 30%, #36ee09 100%);
+
+
+
+  }
+
+  .caja{
+
+    width:200px;
+    height: 110px;
+    margin: 5px 5px;
+    
+    
+  }
+
+  .caja img{
+   width:100%;
+   height:100%;
+   padding: 5px 15px;
+   border-radius: 20px;
+
+  }
+  .caja p {
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 10px;
+    color: #333;
+  }
+
+  #a h1{
+    font-size: 5rem;
+    text-align: center;
+    padding: 100px 0;
+    margin-bottom: 20px;
+  }
+  #a h3{
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 0;
+    
+  }
+
+  #dos{
+    grid-area: dos;
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+  }
+
+  #tres{
+    grid-area: tres;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+  }
+  #cuatro{
+    grid-area: cuatro;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+
+  }
+  
+  
+  #a {
+    grid-area: a;
+    width: 100%;
+    height: auto;
+    background-image: url(imagenes/fondo-hojas.avif);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+   
+  }
+  
+  #b{
+    grid-area: b;
+    display: flex;
+    margin: 10px;
+    border: 2px solid #333;
+    border-radius: 5px;
+
+  }
+
+  .caja2{
+    
+    width: 50%;
+    height:auto;
+    margin: 10px;
+  }
+  
+  .caja2 img{
+    width:100%;
+    height:100%;
+    padding: 5px 15px;
+    border-radius: 20px;
+ 
+   }
+   .caja2 h3 {
+    font-size: 3rem;
+    text-align: center;
+    padding: 10px;
+    color: #333;
+  }
+
+  #c{
+    grid-area: c;
+    display: flex;
+    margin: 10px;
+    border: 2px solid #333;
+    border-radius: 5px;
+
+  }
+
+  #d{
+    grid-area: d;
+    display: flex;
+    margin: 10px;
+    border: 2px solid #333;
+    border-radius: 5px;
+
+  }
+  
+
+  
+  
+  footer {
+    grid-area: footer;
+     font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(7, 7, 7);
+  }
+  
+  #under-bar {
+    grid-area: under-bar;
+    background-color: #95a5a6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+  
+  /* Tablet: Dos columnas para contenido y banner se expande */
+  @media (min-width: 480px) and (max-width: 768px) {
+    #container {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 8vh 60vh repeat(2, 40vh) repeat(3, 50vh) 40vh 30px;
+      grid-template-areas:
+        "header header"
+        "a a"
+        "uno dos"
+        "tres cuatro"
+        "b b"
+        "c c"
+        "d d"
+        "footer footer"
+        "under-bar under-bar";
+    }
+}
+  /* Desktop: Diseño de 4 columnas, se muestra el config */
+@media (min-width: 768px) {
+    #container {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows:30px 13vh 82vh 350px repeat(3, 350px)  350px 50px;
+        grid-template-areas:
+          "config config config config"
+          "header header header header"
+          "a a a a"
+          "uno dos tres cuatro"
+          "b b b b"
+          "c c c c"
+          "d d d d"
+          "footer footer footer footer"
+          "under-bar under-bar under-bar under-bar";
+    }
+    #config {
+        display: flex;
+        justify-content:  flex-end;
+        background-image: url(imagenes/configuracion.png);
+        background-size: 30px;
+        background-size: 30px;       /* Ajusta el tamaño de la imagen */
+        background-repeat: no-repeat;
+        background-position: right center; /* Ubica la imagen en la esquina derecha */
+       
+
+    }
+}
